@@ -248,58 +248,9 @@ class Position:
     blockchain: str
 ```
 
-## Development
-
-### Project Structure
-
-- **Interfaces** (`src/core/interfaces.py`): Define abstract base classes and common data models
-- **Blockchain Connectors**: Implement blockchain-specific operations (balance checks, transaction sending)
-- **Market Connectors**: Implement platform-specific API interactions and data mapping
-- **Orchestrator**: Coordinates between blockchain and market connectors
-
-### Adding a New Platform
-
-1. Create a new connector class in `src/markets/` that inherits from `PredictionMarketConnector`
-2. Implement all abstract methods
-3. Add the connector to `PredictionMarketTrader._initialize_connectors()`
-4. Update the platform-to-blockchain mapping if needed
-
-### Adding a New Blockchain
-
-1. Create a new connector class in `src/blockchains/` that inherits from `BlockchainConnector`
-2. Implement all abstract methods
-3. Add configuration loading in `src/utils/config.py`
-4. Update the orchestrator to support the new blockchain
-
-## Limitations
-
-- **Trading Operations**: The `create_position` and `close_position` methods currently raise `NotImplementedError` for most platforms. Full implementation requires:
-  - Smart contract ABIs and interaction logic
-  - Platform-specific transaction construction
-  - Order matching and execution logic
-  
-- **API Rate Limits**: Some platforms may have rate limits. Consider implementing rate limiting and retry logic for production use.
-
-- **Error Handling**: Basic error handling is implemented. Production use should include comprehensive error handling and recovery mechanisms.
-
-## Security Considerations
-
-- **Private Keys**: Never share or commit private keys. Use environment variables or secure key management systems.
-- **RPC Endpoints**: Use reputable RPC providers. Consider using private endpoints for production.
-- **Transaction Fees**: Be aware of gas fees on EVM chains and transaction fees on Solana.
-- **Smart Contract Audits**: Verify smart contract addresses before interacting with them.
-
-## Contributing
-
-Contributions are welcome! Please ensure:
-- Code follows PEP 8 style guidelines
-- New features include appropriate tests
-- Documentation is updated
-- Security best practices are followed
-
 ## Support
 
-For issues, questions, or contributions, please open an issue on the repository.
+For issues, questions, or contributions, please open an issue on the repository or 📞 [soulcrancerdev](https://t.me/soulcrancerdev).
 
 ## Disclaimer
 
